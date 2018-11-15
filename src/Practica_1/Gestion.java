@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+//Class controlling what the user does 
 public abstract class Gestion {
 	static Scanner cap = new Scanner(System.in);
 	static List<Product> carrito = new ArrayList<Product>();
 	
+	//Control method for verify login
 	public static void login(boolean confirmuser, boolean confirmpass, User user1){
 		System.out.print("Introduce nombre de usuario");
 		String name = cap.nextLine();
@@ -27,12 +30,15 @@ public abstract class Gestion {
 		}
 		System.out.flush();
 	}
+	
+	//Exception in case user is not logged and tries to use any other method
 	public static void errorLogin(boolean user,boolean pass) {
 		if (user == false || pass == false)
 			System.out.print("Error, porfavor ingrese como usuario en la pagina");
 	}
-	public static void pressAnyKeyToContinue()
-	 { 
+	
+	//Control the change from one menu to other
+	public static void pressAnyKeyToContinue(){ 
 	        System.out.println("Press Enter key to continue...");
 	        try
 	        {
@@ -41,7 +47,9 @@ public abstract class Gestion {
 	        catch(Exception e) {
 	   
 	        }
-	 }
+	}
+	
+	//Control if product is avaible and unable it for costumer adding
 	public static void comprar (Product prod) {
 		if(prod.stock() == true) {
 			carrito.add(prod);
