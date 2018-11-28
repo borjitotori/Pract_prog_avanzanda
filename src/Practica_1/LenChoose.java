@@ -5,13 +5,13 @@ import java.util.ResourceBundle;
 
 public class LenChoose {
 		
-	static String language = System.getProperty("user.country");
+    static String language = System.getProperty("user.country");
     static String country = System.getProperty("user.language");
 		
 	    
     static String sring1;
     static String sring2;
-	static String sring3;
+    static String sring3;
     static String sring4;
 	    
 	    
@@ -32,7 +32,7 @@ public class LenChoose {
 	}
 
 	public static void translate() {
-		Locale currentLocale;
+	    Locale currentLocale;
 	    ResourceBundle messages;
 
 		currentLocale = new Locale(language, country);
@@ -44,13 +44,13 @@ public class LenChoose {
 		        
 		sring5 = messages.getString("Prod");
 		sring6 = messages.getString("Usr");
-        sring7 = messages.getString("Pssw");
-        sring8 = messages.getString("Log");
+        	sring7 = messages.getString("Pssw");
+        	sring8 = messages.getString("Log");
 		        
-        sring4 = messages.getString("Input");
-        sringexir = messages.getString("Exit");	}
+        	sring4 = messages.getString("Input");
+        	sringexir = messages.getString("Exit");	}
 		
-	protected static String getSring1() {
+		protected static String getSring1() {
 		return sring1;
 	}
 
