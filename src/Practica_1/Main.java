@@ -36,34 +36,31 @@ public class Main {
 		Scanner cap = new Scanner(System.in);
 		
 		//hago un switch con el cual se hara el menu
-		System.out.println("1.Introduce nombre de usuario y contraseña");
+		System.out.println("1.Introduce nombre de usuario y contraseÃ±a");
 		System.out.println("2.Mostrar productos");
-		System.out.println("3.Cambiar nombre de" + user1.userName());
-		System.out.println("4.Cambiar contraseña de" + user1.userName());
+		System.out.println("3.Cambiar nombre de usuario");
+		System.out.println("4.Cambiar contraseÃ±a del usuario");
 		System.out.println("5.Salir del programa");
 		int choice = cap.nextInt();
 
-		
+		// if there's no user detected it forces the new user on create a new one
 		while (!userdetected) {
-Scanner sc = new Scanner(System.in);
+			Scanner opt = new Scanner(System.in);
 			
-			System.out.println("Para entrar tendras que crear un usuario, una contraseña y un Id");
+			System.out.println("Para entrar tendras que crear un usuario, una contraseÃ±a y un Id");
 			System.out.println("");
 			System.out.println("Introduce tu Id:");
-			id = sc.nextLine();
-			Scanner sd = new Scanner(System.in);
+			id = opt.nextLine();
 			System.out.println("Introduce un nombre de usuario:");
-			usuario = sd.nextLine();
-			Scanner se = new Scanner(System.in);
+			usuario = opt.nextLine();
 			
 			String proof = "";
 				while(!passdetected) {
 			
-					System.out.println("Introduce una contraseña: ");
-					contra = se.nextLine();
-					Scanner st = new Scanner(System.in);
-					System.out.println("Introduce la contraseña otra vez: ");
-					proof = st.nextLine();
+					System.out.println("Introduce una contraseÃ±a: ");
+					contra = opt.nextLine();
+					System.out.println("Introduce la contraseÃ±a otra vez: ");
+					proof = opt.nextLine();
 			
 						if(contra.equals(proof)) {
 							passdetected = true;
@@ -77,8 +74,8 @@ Scanner sc = new Scanner(System.in);
 						
 		while (menu) {
 			switch (choice) {
-			//introduce el usuario y la contraseña comprobando si esta registrado
-			
+					
+			//test if user is registered
 			case 1:
 				Scanner log = new Scanner(System.in);
 				String usuarioconf = "",pass = "";
@@ -90,7 +87,8 @@ Scanner sc = new Scanner(System.in);
 					confirmpass = true;
 					confirmuser = true;
 				}
-				//muestra de productos
+					
+			//shows prod
 			case 2:
 				if (confirmpass == true || confirmuser == false) {
 					for(int i=0; i < Category.listproducts.size();i++) {
@@ -103,7 +101,8 @@ Scanner sc = new Scanner(System.in);
 				} else 
 					Gestion.errorLogin(confirmuser, confirmpass);
 				break;
-				
+					
+			//it allows to change username from proxy	
 			case 3:
 				if (confirmpass == true || confirmuser == false) {
 					Scanner username = new Scanner(System.in);
@@ -113,13 +112,15 @@ Scanner sc = new Scanner(System.in);
 					break;
 				}
 				break;
-				
+			
+			//it allows to change password from proxy
 			case 4:
-
-				Scanner passpass = new Scanner(System.in);
-				System.out.println("Introduce la nueva contraseña: ");
-				newPass = passpass.nextLine();
-				mainproxy.setMainPassword(newPass);
+				if (confirmpass == true || confirmuser == false) {
+					Scanner passpass = new Scanner(System.in);
+					System.out.println("Introduce la nueva contraseÃ±a: ");
+					newPass = passpass.nextLine();
+					mainproxy.setMainPassword(newPass);
+				}
 				break;
 				
 			case 5:
