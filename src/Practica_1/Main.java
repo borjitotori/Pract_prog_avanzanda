@@ -100,7 +100,7 @@ public class Main {
 		//hago un switch con el cual se hara el menu
 		LenChoose.translate();
 						
-    	System.out.println(LenChoose.getSring5());
+    		System.out.println(LenChoose.getSring5());
 		System.out.println("1."+ LenChoose.getSring8());
 		System.out.println("2."+ LenChoose.getSring5());
 		System.out.println("3."+ LenChoose.getSring6());
